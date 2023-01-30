@@ -1,0 +1,254 @@
+@import "../../styles/variables.scss";
+
+.checkout {
+  &__main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 0.5px solid $color-dark;
+    width: fit-content;
+    margin: 8rem auto;
+    padding: 1rem 1rem;
+    border-radius: 7px;
+    background: linear-gradient($color-dark, $color-bg);
+    box-shadow: 0px 0px 80px -25px $color-dark;
+    width: 50rem;
+  }
+  &__empty-container {
+    display: flex;
+    text-align: center;
+    margin: 2rem;
+  }
+  &__tickets-container {
+    width: 100%;
+  }
+  &__movie {
+    &--bg-container {
+      margin-right: 2rem;
+      width: 100%;
+      height: 100%;
+      margin-bottom: 1rem;
+      border: 0.5px solid $color-dark;
+      border-radius: 7px;
+      opacity: 0.6;
+      transition: 0.2s all;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &--inner-container {
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 2rem;
+      background: linear-gradient(110deg, transparent 40%, $color-bg 40%);
+    }
+    &--hour-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+      width: 50%;
+      & > div {
+        margin-left: 4rem;
+        text-align: end;
+      }
+    }
+    &--upper-text {
+      font-size: 1.2rem;
+      border-bottom: 1px solid $color-dark;
+      padding-bottom: 0.5rem;
+    }
+    &--title,
+    &--hour {
+      margin-top: 0.5rem;
+      font-size: 2.5rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      &-icon {
+        margin-right: 0.5rem;
+        font-size: 1.7rem;
+      }
+    }
+    &--title {
+      margin-bottom: 1rem;
+    }
+    &--tickets {
+      display: flex;
+      max-width: 100%;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        height: 0.5rem;
+        &-track {
+          background-color: rgba(211, 211, 211, 0);
+        }
+        &-thumb {
+          background-color: $color-primary;
+          border-radius: 7px;
+        }
+      }
+      padding: 1rem 0 1rem 0;
+      $outer-mask: conic-gradient(
+            from 40deg at left,
+            #0000,
+            #000 1deg 99deg,
+            #0000 100deg
+          )
+          left/51% 9.53px repeat-y,
+        conic-gradient(
+            from -140deg at right,
+            #0000,
+            #000 1deg 99deg,
+            #0000 100deg
+          )
+          right/51% 9.53px repeat-y;
+      -webkit-mask: $outer-mask;
+      mask: $outer-mask;
+    }
+    &--single-ticket {
+      display: flex;
+      min-width: 8rem;
+      height: 5rem;
+      justify-content: flex-end;
+      padding: 1rem;
+      margin: 2rem -0.5rem 0 1rem;
+      background-image: url("../../../public/img/paper-bg.jpg");
+      background-size: contain;
+      color: $color-bg;
+      position: relative;
+      outline: 1px solid $color-primary;
+      outline-offset: -8px;
+      -webkit-mask: radial-gradient(5px at 5px 5px, #0000 98%, #000) -5px -5px;
+      mask: radial-gradient(5px at 5px 5px, #0000 98%, #000) -5px -5px;
+      &:last-child {
+        margin-right: 1rem;
+      }
+    }
+    &--seat-number {
+      position: absolute;
+      font-size: 2.5rem;
+      font-weight: 600;
+      font-family: "Old Standard TT", serif;
+      top: 1.7rem;
+      left: 1.2rem;
+      margin-right: 1rem;
+    }
+    &--seat-number-big {
+      position: absolute;
+      font-size: 2.1rem;
+      font-weight: 600;
+      font-family: "Old Standard TT", serif;
+      top: 1.7rem;
+      left: 0.8rem;
+      margin-right: 1rem;
+    }
+
+    &--seat-price {
+      position: absolute;
+      font-family: "Old Standard TT", serif;
+      color: $color-primary;
+      font-size: 2.5rem;
+      font-weight: 600;
+      top: 1.7rem;
+      right: 1.6rem;
+      &::after {
+        content: "€";
+        position: absolute;
+        font-size: 0.8rem;
+        width: 100%;
+        height: 100%;
+        top: -8px;
+        left: 14px;
+      }
+    }
+  }
+  &__data {
+    &--container {
+      border-radius: 7px;
+      width: 100%;
+      border: 0.5px solid $color-dark;
+      padding: 2rem;
+      background-color: $color-bg;
+    }
+    &--title {
+      font-size: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.5px solid $color-dark;
+    }
+    &--value {
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+  &__amount {
+    &-container {
+      display: flex;
+      border-top: 0.5px solid $color-dark;
+      padding-top: 1rem;
+      padding: 2rem;
+      width: 100%;
+      justify-content: flex-end;
+      margin: 2rem 2rem 3rem 0;
+      & p {
+        font-size: 2rem;
+      }
+    }
+    &--price {
+      font-weight: 400;
+    }
+  }
+  &__button-container {
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+    & a:first-child {
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .checkout {
+    &__main-container {
+      margin: 6rem auto;
+      width: 40rem;
+    }
+    &__movie {
+      &--bg-container {
+        opacity: 1;
+        background-position: -190px !important;
+        background-size: 125% !important;
+      }
+      &--inner-container {
+        background: linear-gradient(110deg, transparent 30%, $color-bg 30%);
+      }
+      &--title {
+        background-color: #10152287;
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .checkout {
+    &__main-container {
+      margin: 6rem auto;
+      width: 33rem;
+    }
+    &__movie {
+      &--bg-container {
+        opacity: 1;
+        background-position: -210px !important;
+        background-size: 155% !important;
+      }
+      &--inner-container {
+        background: linear-gradient(110deg, transparent 30%, $color-bg 30%);
+      }
+    }
+  }
+}

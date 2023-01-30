@@ -1,0 +1,399 @@
+@import "../../styles/variables.scss";
+@import "../../styles/animations.scss";
+
+.cart {
+  &__main-container {
+    overflow: hidden;
+  }
+  &__empty-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.401);
+    border: 0.5px solid $color-bg;
+    border-radius: 7px;
+    margin: 1rem 0 3rem 0;
+  }
+  &__items {
+    &-container {
+      padding: 1rem;
+      border-radius: 7px;
+      background-color: rgba(0, 0, 0, 0.401);
+      border: 0.5px solid $color-bg;
+      color: $color-text;
+      margin: 1rem 0;
+    }
+    &-list {
+      overflow-x: auto;
+      padding: 1rem 0;
+      &::-webkit-scrollbar {
+        height: 0rem;
+      }
+      list-style: none;
+      display: flex;
+      $outer-mask: conic-gradient(
+            from 40deg at left,
+            #0000,
+            #000 1deg 99deg,
+            #0000 100deg
+          )
+          left/51% 9.53px repeat-y,
+        conic-gradient(
+            from -140deg at right,
+            #0000,
+            #000 1deg 99deg,
+            #0000 100deg
+          )
+          right/51% 9.53px repeat-y;
+      -webkit-mask: $outer-mask;
+      mask: $outer-mask;
+    }
+    &-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &--right-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+      }
+      &--ticket-icon {
+        font-size: 2rem;
+        margin-right: 0.5rem;
+      }
+      &--title,
+      &--ticket-amount,
+      &--hour {
+        font-size: 1.5;
+      }
+    }
+  }
+  &__ticket {
+    &--outer {
+      height: 8rem;
+      &:first-child {
+        margin-left: 1rem;
+      }
+      &:last-child {
+        margin-right: 1rem;
+      }
+      display: flex;
+      color: black;
+      padding: 0.8rem;
+      margin: 1rem 0.01rem;
+      background-color: $color-text;
+      background-image: url("../../../public/img/paper-bg.jpg");
+      background-repeat: repeat;
+      background-size: contain;
+      position: relative;
+      $border-mask: radial-gradient(10px at 10px 10px, #0000 98%, #000) -10px -10px;
+      -webkit-mask: $border-mask;
+      mask: $border-mask;
+      &:hover {
+        & #scissors {
+          animation: shake 0.22s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          transform: translate3d(0, 0, 0);
+          backface-visibility: hidden;
+          perspective: 1000px;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        background-color: $color-bg;
+        --mask: radial-gradient(3px at 3px 50%, #000 97%, #0000) -3px/ 100%
+          5.55px;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+      }
+    }
+    &--inner {
+      border: 3px solid $color-primary;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 12rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    &--seat {
+      &-container {
+        position: relative;
+        width: 45%;
+      }
+      &-word {
+        position: absolute;
+        top: -8px;
+        left: -26px;
+        font-family: "Old Standard TT", serif;
+        font-size: 1rem;
+        letter-spacing: -1px;
+        transform: rotate(-90deg);
+        text-transform: uppercase;
+        color: $color-primary;
+        &::before {
+          content: "";
+          transform: rotate(90deg);
+          position: absolute;
+          top: -12px;
+          left: 26px;
+          height: 60px;
+          width: 3px;
+          background-color: $color-primary;
+        }
+      }
+      &-number {
+        position: absolute;
+        top: -10px;
+        left: 8px;
+        transform: rotate(-90deg);
+        font-family: "Libre Baskerville", serif;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      &-big-number {
+        position: absolute;
+        top: -10px;
+        left: 5px;
+        transform: rotate(-90deg);
+        font-family: "Libre Baskerville", serif;
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+    }
+    &--price {
+      &-container {
+        position: relative;
+      }
+      &-number {
+        position: absolute;
+        top: -8px;
+        left: 3px;
+        color: $color-primary;
+        font-family: "Libre Baskerville", serif;
+        font-size: 6rem;
+        font-weight: bold;
+      }
+      &-eur {
+        font-family: inherit;
+        position: absolute;
+        top: -16px;
+        right: -12px;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+    }
+    &--star {
+      &-right {
+        position: absolute;
+        font-size: 1.2rem;
+        bottom: 0.2rem;
+        right: 0.2rem;
+      }
+    }
+    &--delete-btn {
+      cursor: pointer;
+      color: black;
+      position: relative;
+      z-index: 1000;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 0.5rem;
+      background-color: transparent;
+      border: none;
+      margin-left: 0.3rem;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 6px;
+        border: 0.5px dashed black;
+        height: 65%;
+      }
+    }
+  }
+  &__btn-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    & button:first-of-type {
+      margin-right: 1rem;
+    }
+  }
+  &__amount {
+    &-container {
+      display: flex;
+      justify-content: flex-end;
+      margin: 2rem 2rem 3rem 0;
+    }
+    &-price {
+      font-weight: 400;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .cart {
+    &__items {
+      &-container {
+        padding: 1.5rem;
+      }
+      &-list {
+        margin-top: 0.5rem;
+      }
+      &-details {
+        &--hour,
+        &--ticket-amount,
+        &--title {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    &__ticket {
+      &--outer {
+        transform: scale(0.8);
+
+        &:first-child {
+          margin-left: -1rem;
+        }
+        &:last-child {
+          margin-right: 0rem;
+        }
+        padding: 0.8rem;
+        margin: 0rem -0.2rem;
+        margin-right: -3rem;
+        &:hover {
+          & #scissors {
+            animation: shake 0.22s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          right: 0;
+          background-color: $color-bg;
+          -webkit-mask: radial-gradient(3px at 3px 50%, #000 97%, #0000) -3px/
+            100% 5.55px;
+          mask: radial-gradient(3px at 3px 50%, #000 97%, #0000) -3px/ 100%
+            5.55px;
+        }
+      }
+      &--inner {
+        border: 3px solid $color-primary;
+        padding: 1rem;
+        border-radius: 10px;
+        width: 12rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      &--seat {
+        &-container {
+          position: relative;
+          width: 45%;
+        }
+        &-word {
+          position: absolute;
+          top: -8px;
+          left: -26px;
+          font-family: "Old Standard TT", serif;
+          font-size: 1rem;
+          letter-spacing: -1px;
+          transform: rotate(-90deg);
+          text-transform: uppercase;
+          color: $color-primary;
+          &::before {
+            content: "";
+            transform: rotate(90deg);
+            position: absolute;
+            top: -12px;
+            left: 26px;
+            height: 60px;
+            width: 3px;
+            background-color: $color-primary;
+          }
+        }
+        &-number {
+          position: absolute;
+          top: -10px;
+          left: 8px;
+          transform: rotate(-90deg);
+          font-family: "Libre Baskerville", serif;
+          font-size: 3rem;
+          font-weight: bold;
+        }
+        &-big-number {
+          position: absolute;
+          top: -10px;
+          left: 5px;
+          transform: rotate(-90deg);
+          font-family: "Libre Baskerville", serif;
+          font-size: 2.5rem;
+          font-weight: bold;
+        }
+      }
+      &--price {
+        &-container {
+          position: relative;
+        }
+        &-number {
+          position: absolute;
+          top: -8px;
+          left: 3px;
+          color: $color-primary;
+          font-family: "Libre Baskerville", serif;
+          font-size: 6rem;
+          font-weight: bold;
+        }
+        &-eur {
+          font-family: inherit;
+          position: absolute;
+          top: -16px;
+          right: -12px;
+          font-weight: bold;
+          font-size: 2rem;
+        }
+      }
+      &--star {
+        &-right {
+          position: absolute;
+          font-size: 1.2rem;
+          bottom: 0.2rem;
+          right: 0.2rem;
+        }
+      }
+      &--delete-btn {
+        cursor: pointer;
+        color: black;
+        position: relative;
+        z-index: 1000;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 0.5rem;
+        background-color: transparent;
+        border: none;
+        margin-left: 0.3rem;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 6px;
+          border: 0.5px dashed black;
+          height: 65%;
+        }
+      }
+    }
+  }
+}

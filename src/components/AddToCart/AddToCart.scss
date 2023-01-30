@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.add-to-cart {
+  &__main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button, p {
+      margin: 3rem 1rem 0rem 1rem;
+    }
+  }
+}

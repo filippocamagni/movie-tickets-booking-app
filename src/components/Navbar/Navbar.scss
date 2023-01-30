@@ -1,0 +1,111 @@
+@import "../../styles/variables.scss";
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.nav {
+  position: fixed;
+  z-index: 100;
+  padding: 2rem 5rem;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  background: linear-gradient($color-dark, lighten($color-bg, 0%) 90%);
+  border-bottom: 0.5px solid $color-dark;
+  box-shadow: 0px 0px 80px -25px $color-dark;
+  height: 7rem;
+
+  &__list {
+    display: flex;
+    flex-grow: 1;
+    list-style: none;
+
+    & > li {
+      padding: 0.5rem;
+    }
+
+    & > li:nth-of-type(1) {
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+
+    &--button {
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      font-size: 2.5rem;
+      color: $color-text;
+    }
+
+    &--cart {
+      position: relative;
+      &-badge {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 1.1rem;
+        inset: -0.5rem 0 0 2rem;
+        background-color: $color-primary;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        width: 2rem;
+        border-bottom: 1px solid darken($color-primary, 10%);
+      }
+    }
+    &--price {
+      margin-left: 2.5rem;
+      margin-right: 2.5rem;
+      font-size: 2.5rem;
+      position: relative;
+      &-badge {
+        position: absolute;
+        inset: 0.7rem 4rem;
+        font-weight: 400;
+        width: 5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .badge-sm {
+    font-size: 0.9rem;
+  }
+
+  &__list a,
+  &__list a:hover,
+  &__list a:focus {
+    color: $color-text;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav {
+    font-size: 1.5rem;
+    &__list {
+      & > li {
+        padding: 0.2rem;
+      }
+      &--button {
+        font-size: 2.2rem;
+      }
+      &--price {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .nav {
+    padding: 2rem 4rem 2rem 2rem;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+}

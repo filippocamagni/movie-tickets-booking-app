@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Divorce Italian Style",
+    "originalTitle": "Divorzio all'italiana",
+    "year": "1961",
+    "rated": "PG-13",
+    "runtime": "1h 45m",
+    "genres": ["Drama", "Dark comedy"],
+    "plot": "A married Sicilian baron falls in love with his cousin and vows to wed her, but with divorce illegal he must concoct a crime of passion to do away with his wife.",
+    "language": "IT | EN subtitles",
+    "poster": "../img/divorce_italian_style.jpeg",
+    "movieBg": "../img/divorce_italian_style_bg.jpeg",
+    "hours": ["10:30", "12:00", "16:45", "19:00", "21:30"]
+  },
+  {
+    "id": 2,
+    "title": "Some Like It Hot",
+    "year": "1959",
+    "rated": "R",
+    "runtime": "2h 01m",
+    "genres": ["Comedy", "Music", "Romance"],
+    "plot": "After two male musicians witness a mob hit, they flee the state in an all-female band disguised as women, but further complications set in.",
+    "language": "EN",
+    "poster": "../img/some_like.jpg",
+    "movieBg": "../img/some_like_bg.jpeg",
+    "hours": ["20:00", "22:00"]
+  },
+  {
+    "id": 3,
+    "title": "I Remember",
+    "originalTitle": "Amarcord",
+    "year": "1973",
+    "rated": "R",
+    "runtime": "2h 03m",
+    "genres": ["Comedy", "Drama"],
+    "plot": "A series of comedic and nostalgic vignettes set in a 1930s Italian coastal town.",
+    "language": "IT | EN subtitles",
+    "poster": "../img/amarcord.jpeg",
+    "movieBg": "../img/amarcord_bg.jpeg",
+    "hours": ["11:00", "19:45", "21:00"]
+  },
+  {
+    "id": 4,
+    "title": "Il Sorpasso",
+    "year": "1963",
+    "rated": "R",
+    "runtime": "1h 45m",
+    "genres": ["Comedy", "Drama"],
+    "plot": "An impulsive braggart takes a shy law student with him for a two-day road trip from Rome to Tuscany.",
+    "language": "IT | EN subtitles",
+    "poster": "../img/sorpasso.jpg",
+    "movieBg": "../img/sorpasso_bg.jpeg",
+    "hours": ["18:35", "22:00"]
+  }
+]

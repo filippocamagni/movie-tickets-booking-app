@@ -1,0 +1,325 @@
+@import "../../styles/variables.scss";
+@import "../../styles/helpers.scss";
+
+.booking-system {
+  &__container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__screen {
+    margin-top: 4rem;
+    perspective: 800px;
+    min-width: 55rem;
+  }
+
+  &__theatre {
+    display: flex;
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+  }
+
+  &__movie {
+    &-summary {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(211, 211, 211, 0.089);
+      box-shadow: 0px 0px 80px -25px lighten($color-dark, 20%);
+      align-items: center;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 6rem;
+      transform: rotateX(-10deg);
+      border: 0.5px solid $color-dark;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(0, 0, 0, 0.741);
+        z-index: 10;
+      }
+      &--inner {
+        text-align: center;
+        padding: 2rem;
+        z-index: 100;
+      }
+      & h3 {
+        font-size: 4rem;
+        font-weight: 600;
+      }
+      & p:last-of-type {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.seats-container {
+  display: flex;
+}
+
+.seat {
+  cursor: pointer;
+  width: 4rem;
+  margin: -3rem 0.5rem 1rem 0.75rem;
+  height: 5rem;
+  border-radius: 7px;
+  border: 0.3px solid $color-dark;
+  background: linear-gradient(
+    to top,
+    $color-primary,
+    $color-primary,
+    $color-primary,
+    $color-primary,
+    $color-primary,
+    lighten($color-primary, 10%),
+    lighten($color-primary, 30%)
+  );
+  box-shadow: 0 0px 10px $color-bg;
+  padding-top: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:hover:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(28, 28, 28, 0.5);
+    border-radius: 7px;
+  }
+
+  &.selected:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.319);
+    border-radius: 7px;
+  }
+}
+
+.col {
+  &-1 {
+    transform: skew(-10deg);
+    .seat {
+      transform: skew(10deg);
+    }
+  }
+  &-2 {
+    transform: skew(-8deg);
+    .seat {
+      transform: skew(8deg);
+    }
+  }
+  &-3 {
+    transform: skew(-6deg);
+    .seat {
+      transform: skew(6deg);
+    }
+  }
+  &-4 {
+    transform: skew(-4deg);
+    .seat {
+      transform: skew(4deg);
+    }
+  }
+  &-5 {
+    transform: skew(-2deg);
+    .seat {
+      transform: skew(2deg);
+    }
+  }
+  &-6 {
+    transform: skew(0deg);
+    z-index: 6;
+    .seat {
+      transform: skew(0deg);
+    }
+  }
+  &-7 {
+    transform: skew(2deg);
+    z-index: 5;
+    .seat {
+      transform: skew(-2deg);
+    }
+  }
+  &-8 {
+    transform: skew(4deg);
+    z-index: 4;
+    .seat {
+      transform: skew(-4deg);
+    }
+  }
+  &-9 {
+    transform: skew(6deg);
+    z-index: 3;
+    .seat {
+      transform: skew(-6deg);
+    }
+  }
+  &-10 {
+    transform: skew(8deg);
+    z-index: 2;
+    .seat {
+      transform: skew(-8deg);
+    }
+  }
+  &-11 {
+    transform: skew(10deg);
+    z-index: 1;
+    .seat {
+      transform: skew(-10deg);
+    }
+  }
+}
+
+@media (max-width: 615px) {
+  .booking-system {
+    &__screen {
+      margin-top: 1rem;
+      min-width: 40rem;
+    }
+    &__movie {
+      &-summary {
+        &--inner {
+          padding: 2rem;
+          z-index: 100;
+          & p {
+            font-size: 1.3rem;
+          }
+          & h3 {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+  .seat {
+    width: 3.2rem;
+    margin: -3rem 0.2rem 1rem 0.75rem;
+    height: 4.5rem;
+    border-radius: 7px;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .booking-system {
+    &__screen {
+      min-width: 32rem;
+    }
+    &__movie {
+      &-summary {
+        &--inner {
+          padding: 2rem;
+          z-index: 100;
+          & p {
+            font-size: 1.2rem;
+          }
+          & h3 {
+            font-size: 2rem;
+          }
+          & p:last-of-type {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+  .seat {
+    width: 2.8rem;
+    margin: -3rem 0rem 1.8rem 0.75rem;
+    height: 4rem;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .booking-system {
+    &__theatre {
+      margin-top: 7rem;
+    }
+  }
+  .seat {
+    width: 2.5rem;
+    margin: -3rem 0.2rem 1rem 0.4rem;
+    height: 4.2rem;
+  }
+  .col {
+    &-1 {
+      transform: skew(-5deg);
+      .seat {
+        transform: skew(5deg);
+      }
+    }
+    &-2 {
+      transform: skew(-4deg);
+      .seat {
+        transform: skew(4deg);
+      }
+    }
+    &-3 {
+      transform: skew(-3deg);
+      .seat {
+        transform: skew(3deg);
+      }
+    }
+    &-4 {
+      transform: skew(-2deg);
+      .seat {
+        transform: skew(2deg);
+      }
+    }
+    &-5 {
+      transform: skew(-1deg);
+      .seat {
+        transform: skew(1deg);
+      }
+    }
+    &-6 {
+      transform: skew(0deg);
+      .seat {
+        transform: skew(0deg);
+      }
+    }
+    &-7 {
+      transform: skew(1deg);
+      .seat {
+        transform: skew(-1deg);
+      }
+    }
+    &-8 {
+      transform: skew(2deg);
+      .seat {
+        transform: skew(-2deg);
+      }
+    }
+    &-9 {
+      transform: skew(3deg);
+      .seat {
+        transform: skew(-3deg);
+      }
+    }
+    &-10 {
+      transform: skew(4deg);
+      .seat {
+        transform: skew(-5deg);
+      }
+    }
+    &-11 {
+      transform: skew(6deg);
+      .seat {
+        transform: skew(-6deg);
+      }
+    }
+  }
+}

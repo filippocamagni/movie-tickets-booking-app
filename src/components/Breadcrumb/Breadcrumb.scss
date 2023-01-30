@@ -1,0 +1,120 @@
+@import "../../styles/variables.scss";
+
+.breadcrumb__container {
+  margin-top: 10rem;
+  font-size: 1.5rem;
+}
+
+.breadcrumb__list {
+  display: flex;
+  list-style: none;
+  position: relative;
+
+  &--item {
+    padding: 0.5rem 2rem;
+    margin-right: 0.5rem;
+    position: relative;
+
+    &-n {
+      display: inline-block;
+      text-align: center;
+      line-height: 2.5rem;
+      font-size: 1rem;
+      height: 2.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: $color-bg;
+      border-bottom: 1px solid $color-dark;
+      margin-right: 1rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient($color-dark, lighten($color-bg, 2%) 90%);
+      border-bottom: 0.5px solid $color-dark;
+      transform: skew(-20deg);
+    }
+  }
+}
+
+.active-bc,
+.not-active-bc {
+  z-index: 2;
+  position: relative;
+  line-height: 2.5;
+  padding: 0 2rem;
+  color: $color-text;
+  text-decoration: none;
+}
+
+.not-active-bc {
+  color: lighten($color-dark, 5%);
+}
+
+@media (max-width: 830px) {
+  .breadcrumb__list {
+    &--item {
+      padding: 0.5rem 1rem;
+      &-n {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 615px) {
+  .breadcrumb__list {
+    &--item {
+      padding: 0.5rem 0rem;
+      margin-right: 0.1rem;
+      &::before {
+        border-bottom: none;
+        transform: none;
+      }
+      &:first-of-type {
+        &::before {
+          border-radius: 7px 0 0 7px;
+        }
+      }
+      &:last-of-type {
+        &::before {
+          border-radius: 0 7px 7px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .breadcrumb__list {
+    &--item {
+      & p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .active-bc,
+  .not-active-bc {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .breadcrumb__list {
+    &--item {
+      margin-right: 0.2;
+      & p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

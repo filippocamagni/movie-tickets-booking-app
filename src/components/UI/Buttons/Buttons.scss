@@ -1,0 +1,47 @@
+@import "../../../styles/variables.scss";
+
+.btn-main {
+  cursor: pointer;
+  background: linear-gradient($color-primary, darken(#761818, 10%));
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  color: $color-text;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 1.3rem;
+  transition: 0.2s all;
+  opacity: 1;
+  &:hover {
+    opacity: 0.9;
+    color: darken($color-text, 5%);
+    background: linear-gradient(
+      darken($color-primary, 5%),
+      darken(#761818, 15%)
+    );
+  }
+  &:active {
+    color: darken($color-text, 6%);
+    background: linear-gradient(
+      darken($color-primary, 6%),
+      darken(#761818, 16%)
+    );
+    transform: translateY(1px);
+  }
+  &:disabled {
+    opacity: 0.5;
+    &:hover {
+      opacity: 0.5;
+      background: linear-gradient($color-primary, darken(#761818, 10%));
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    color: $color-text;
+    &:visited {
+      text-decoration: none;
+      color: $color-text;
+    }
+  }
+}
